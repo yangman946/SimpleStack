@@ -21,6 +21,10 @@ There are two ways to access this project:
 2) `$ venv\Scripts\activate` to activate virtual environment
 3) `$ python manage.py runserver`
 
+### Access directly via Web URL
+
+1) TBA
+
 ## The algorithm
 
 What differentiates SimpleStack from the standard search functions?
