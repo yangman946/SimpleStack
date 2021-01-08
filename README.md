@@ -8,9 +8,18 @@ Although many have access to google and the internet, it is evident that beginne
 
 ## Cloning
 
-use:
 
-`git clone https://github.com/yangman946/SimpleStack`
+`$ git clone https://github.com/yangman946/SimpleStack`
+
+## run
+
+There are two ways to access this project:
+
+### Run Django Server
+
+1) In CMD: `$ cd [project directory]` (this directory should contain `manage.py`)
+2) `$ venv\Scripts\activate` to activate virtual environment
+3) `$ python manage.py runserver`
 
 ## The algorithm
 
