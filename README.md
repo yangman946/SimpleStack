@@ -17,9 +17,14 @@ There are two ways to access this project:
 
 ### Run Django Server
 
-1) In CMD: `$ cd [project directory]` (this directory should contain `manage.py`)
-2) `$ venv\Scripts\activate` to activate virtual environment
-3) `$ python manage.py runserver`
+1) Make sure [python](https://www.python.org/) is installed and added to path
+2) Get Django: `$ pip install django`
+3) Get virtual environment: `$ pip install virtualenv`
+4) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack`
+5) In CMD: `$ cd [project directory]` (this directory should contain `manage.py`)
+6) `$ venv\Scripts\activate` to activate virtual environment
+7) `$ python manage.py runserver`
+8) Visit the locally hosted site (address shown on command prompt)
 
 ### Access directly via Web URL
 
@@ -27,7 +32,7 @@ There are two ways to access this project:
 
 ## The algorithm
 
-What differentiates SimpleStack from the standard search functions?
+### What differentiates SimpleStack from the standard search functions?
 
 ```
 
@@ -44,5 +49,8 @@ What differentiates SimpleStack from the standard search functions?
 4) link/button at bottom of page will enable user to refresh and find better question either manually from my list or automatically via the algorithm
 5) this repeats step 2 and below.
 ```
+
+
+
 
 Created by Clarence Yang 2021 for the HSC SDD major project.
