@@ -1,10 +1,18 @@
 # SimpleStack
 
-![logo](https://github.com/yangman946/SimpleStack/blob/main/logo_hq.png?raw=true)
+
+
+<p align="center">
+<img src="https://github.com/yangman946/SimpleStack/blob/main/logo_hq.png?raw=true" alt="simple stack">
+
+<h1 align="center">Simple Stack</h1>
+</p>
+
+## About 
 
 SimpleStack is a web application that allows developers to easily find solutions to their problems. 
 
-SimpleStack is a ‘search engine’ designed for beginner developers and programmers with the intention of teaching them efficient googling for overcoming bugs and issues. This tool searches “Stack Exchange” using their [API](https://api.stackexchange.com/docs) and attempts to shape the user's input to yield clear and efficient search results. 
+SimpleStack is a ‘search engine’ designed for beginner developers and programmers with the intention to teach them efficient googling for overcoming bugs and issues. This tool searches “Stack Exchange” using their [API](https://api.stackexchange.com/docs) and shapes the user's input to yield clear and efficient search results. 
 
 Although many have access to google and the internet, it is evident that beginners especially find it difficult or daunting to efficiently search the web for solutions to their issues. Usually, an inefficient search would yield useless results leading to confusion. SimpleStack aims to overcome this by training them to be more knowledgeable at how they search rather than being more knowledgeable at what they search. 
 
