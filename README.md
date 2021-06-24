@@ -16,16 +16,14 @@ SimpleStack is a Search Engine dedicated to solving your programming issues. It 
 
 SimpleStack cuts through all the redundancies, giving you only what matters, through overcoming bugs and issues by shaping the your input to yield clear and efficient search results with the aid of AI.
 
-SimpleStack is a search engine designed for beginner developers and programmers with the intention to teach them efficient googling for overcoming bugs and issues. This tool searches “Stack Exchange” using their [API](https://api.stackexchange.com/docs) and shapes the user's input to yield clear and efficient search results. 
-
-
+SimpleStack is currently in it's Beta testing stage, please give feedback <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">here</a>.
 
 ## Cloning
 
 
 `$ git clone https://github.com/yangman946/SimpleStack`
 
-## run
+## running
 
 There are two ways to access this project:
 
@@ -34,12 +32,19 @@ There are two ways to access this project:
 If you wish to run SimpleStack locally or make contributions:
 
 1) Make sure [python](https://www.python.org/) is installed and added to path
+
 2) Get Django: `$ pip install django` via CMD
+
 3) Get virtual environment: `$ pip install virtualenv`
+
 4) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack`
+
 5) In CMD: `$ cd [project directory]` (this directory should contain `manage.py`)
+
 6) run `$ venv\Scripts\activate` to activate virtual environment
+
 7) run `$ python manage.py runserver` to run server
+
 8) Visit the locally hosted site (address shown on command prompt)
 
 ### Access directly via Web URL
@@ -48,7 +53,7 @@ If you wish to run SimpleStack locally or make contributions:
 
 ## The algorithm
 
-Although websites like Google can find results to programming issues, most developers, mainly beginners, struggle to find relevant information. 
+Although websites like Google can also find results to programming issues, most developers, mainly beginners, struggle to find relevant information. 
 
 ### What makes SimpleStack Special?
 
@@ -76,5 +81,5 @@ Although websites like Google can find results to programming issues, most devel
 
 
 
+<i>Created by Clarence Yang 2021 for the HSC SDD major project.</i>
 
-Created by Clarence Yang 2021 for the HSC SDD major project.

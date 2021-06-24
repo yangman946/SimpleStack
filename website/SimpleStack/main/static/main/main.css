@@ -137,6 +137,15 @@
     display: block;
   }
 
+  .footer-section-contact-form{
+    float:left;
+    padding-top: 30px;
+    padding-right: 100px;
+    padding-right: 50px;
+    width: 30%;
+    display: block;
+  }
+
 
 
   .footer p{
