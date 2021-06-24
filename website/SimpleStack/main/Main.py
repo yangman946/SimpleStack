@@ -6,18 +6,24 @@ This script is the main backend of SimpleStack, it handles the API
 
 ALGORITHM: copyright clarence yang 2021
 
-1) will use search query to find a list of relevant results: not using wrapper: getting list of most appropriate questions and getting their ID
-    criteria:                                   a good result:
-    - will sort by score: vote count            [high]          //
-    - if it is answered                         [answered]      //
-    - if is is closed or not                    [not closed]    
-    - view count                                [high]          //
-    - count of how many tags are common         [high]          
-    - count of how many answers                 [high]          
-2) will unpack all answers and output the top/accepted one to the user. 
-3) this will only show the top one [change if needed], the user will press MORE to show more answers
-4) link/button at bottom of page will enable user to refresh and find better question either manually from my list or automatically via the algorithm
-5) this repeats step 2 and below.
+1) SimpleStack will use the given search query to find a list of relevant results and compare each to the following criteria:
+
+    criteria:                                   good result:
+    - will sort by score: vote count            [high]          
+    - is answered                               [yes]      
+    - answer count                              [high]    
+    - view count                                [high]          
+    - count of common tags                      [high]          
+    - AI relevancy                              [high]
+    - detected language                         [yes]
+    - detected question type                    [yes]     
+
+2) SimpleStack will unpack all answers and output the top answer to the user. 
+
+3) Each subsequent answer is ranked according to a score derived from the criteria above. 
+
+4) to fetch answers, an API call is made, getting the answer as JSON
+
 
 
 
