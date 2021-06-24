@@ -1,0 +1,312 @@
+<!--our home html template-->
+{% extends "main/base.html" %}
+{% load extra %}
+
+{% block heading %}
+<!--<div class= "big-head">
+    <div class= "container">
+        <h1 style="color: #f5f5f5; font-size: 100px; font-weight: lighter; margin: auto; padding: 40px; font-family: Century Gothic;">About Us</h1>   
+    </div>
+     
+    
+</div>-->
+
+<h1>Results for '{{Search}}'</h1>
+
+<!--results????-->
+<p>{{resultCount}} results found ({{time}}ms)</p>
+
+
+{% endblock heading %}
+
+{% block content %}
+
+
+{% if confident == False %}
+
+
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-right: 30px;">
+  <strong>Hmmm...</strong> there aren't many good results, the results below don't seem very reliable. See the <a href="{% url 'main-guide' %}">Guide</a> for more information.
+</div>
+<br>
+
+<br>
+
+
+{% endif %}
+
+{% if currentPage == 1 %}
+
+<hr>
+<br>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="$('#exampleModal').modal('hide');"></button>
+      </div>
+      <div class="modal-body">
+        Search: '{{Search}}'<br>
+        Result Count: {{resultCount}}<br>
+        time: {{time}}ms<br>
+        pages total: {{TotalPages}}<br>
+        Current page: {{currentPage}}<br>
+        Language: {{language}} <br>
+        Type: {{type}} <br>
+        confidence: {{confidence}}%<br>
+        sort by: {{sort}}<br>
+        order: {{order}}<br>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="$('#exampleModal').modal('hide');">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="topResults" style="margin-bottom: 30px;">
+  <div style="padding: 20px;">
+    <h2 style="color: #008037;"><b>Top Result</b></h2>
+    <br>
+    
+    <!--the content-->
+    <div class = "Result_content" style="padding:20px;">
+      <form id="form-id" method="get" action ="{% url 'answer' TopID %}">
+        
+        
+        <a style="color: #008037; font-size: large;" onclick="document.getElementById('form-id').submit();" href = "#uhh"><b>Answer to: '{{TopTitle}}'</b></a> <!--replace toptitle with id-->
+      </form>
+      <hr>
+      <br>
+      
+      {{TopAns|safe}}
+      <br>
+      <hr>
+      <br>
+    </div>
+
+
+    <p>From: <a href = {{link}} >{{link}}</a></p> <!--open in new tab???-->
+    <ul class="list-inline ">
+      {% for r in tagsQ %}
+        <li class="list-g">{{r}}</li>
+      {% endfor %}
+
+      
+    </ul>
+
+
+  </div>
+  
+  
+</div>
+
+
+
+<hr>
+<br>
+{% endif %}
+
+{% for item1, item2, item3, item4, item5 in ArrayFinal %}
+<div class="Results" style="padding-bottom: 30px;">
+  <div style="padding: 20px;">
+    
+    <!--the content-->
+    <div class = "Result_content">
+
+      <form id="form-{{forloop.counter0}}" method="get" action ="{% url 'answer' item5 %}">
+        
+        
+        <a style="color: #008037; font-size: large;" onclick="document.getElementById('form-{{forloop.counter0}}').submit();" href = "#uhh"><b>'{{item2}}'</b></a> <!--replace toptitle with id-->
+      </form>
+      
+
+
+      <div class = "textResults" style="font-size: small; padding-top: 20px;">
+        {{ item1 |truncatechars:300|striptags }}
+      </div>
+
+    </div>
+
+    <p>From: <a href = {{item3}} target="_blank">{{item3}}</a></p> <!--open in new tab???-->
+    <ul class="list-inline ">
+      {% for r in item4 %}
+          <li class="list-g">{{r}}</li>
+      {% endfor %}
+
+      
+    </ul>
+
+
+  </div>
+  
+  
+</div>
+
+
+
+
+{% endfor %}
+
+
+
+{% endblock content %}
+
+
+{% block endline %}
+<div class="endLine">
+  <hr>
+  <br>
+  <!--basically a section for telling the user that we have ended the result-->
+  <h5><i>More results</i></h5>
+
+  <form class="form-inline d-flex justify-content-center md-form form-sm" action ="" style="padding-top: 30px;"> 
+    <!--pagination: see https://getbootstrap.com/docs/5.0/components/pagination/ -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+
+        {% if currentPage == 1 %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true" style="color: #008037;">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" href="{{ request.path }}{{pre}}&page={{currentPage|subtract}}" style="color: #008037;">Previous</a>
+        </li>
+        {% endif %}
+
+
+
+        {% for i in pages %}
+
+
+
+        {% if forloop.counter == currentPage %}
+
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#" style="background-color: #008037; ">{{i}}</a>
+        </li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{ request.path }}{{pre}}&page={{i}}" style="color: #008037;">{{i}}</a></li>
+        {% endif %}
+
+        
+        {% endfor %}
+
+        {% if currentPage == TotalPages %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true" style="color: #008037;">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" href="{{ request.path }}{{pre}}&page={{currentPage|add}}" style="color: #008037;">Next</a>
+        </li>
+        {% endif %}
+        
+
+      </ul>
+    </nav>
+</form>
+</div>
+
+
+
+<!--have a list of top results: loop through them-->
+{% endblock endline %}
+
+{% block sidebar %}
+<div class="content-section" style="padding: 20px">
+                  
+    <h3 style = "margin-top: 10px;">Your Search</h3>
+    <p class='text-muted'>For more information on searching see <a href="{% url 'main-guide' %}" style="color: #008037;">Guide</a>
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item list-group-item-light">
+          <h4>Search</h4>
+
+
+          <div class="bar" style="width: 100%; margin-left: auto; margin-right: auto; padding-top: 20px; padding-bottom: 40px;"> <!--this is the search bar-->
+          <!-- Search form -->
+          
+            <form class="form-inline d-flex justify-content-center md-form form-sm" action ="{% url 'searchbar' %}" method ="get">
+                
+              <input class="form-control form-control-sm mr-3 w-75" autocomplete="off" style= "border-radius: 25px;" type="text" value= "{{ Search }}" aria-label="Search" name = "search" spellcheck="false">
+                
+
+              <button type="submit" class="btn btn-secondary" style = "display: block;" onclick="myFunction()" id="idle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" style="padding-bottom: 3px;">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                </svg>
+                <span class="visually-hidden">Button</span>
+              </button>
+
+              <button class="btn btn-primary" type="button" id ="loading" style = "display: none; background: #407156; border-color: #407156;" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="padding-bottom: 10px;"></span>
+                  
+              </button>
+            </form>
+          </div>
+
+        
+        </li>
+        <li class="list-group-item list-group-item-light">
+          <h4>Tags</h4>
+          <ul class="list-inline " style="padding-top: 10px; padding-bottom: 10px;">
+              {% for r in tags %}
+                  <li class="list-g">{{r}}</li>
+              {% endfor %}
+              
+              
+          </ul>
+          <br>
+        </li>
+        <li class="list-group-item list-group-item-light">
+
+          <div class="nerd_stuff">
+            <p style="margin-top: 10px;">
+              <button type="button" class="btn btn-primary" onclick="$('#exampleModal').modal('show');" style="margin-left: auto; margin-right: auto; display: block; width: 60%;">
+                Details
+              </button>
+            
+            </p>
+
+
+            
+          </div>
+
+          
+
+
+          
+
+          
+        </li>
+      </ul>
+    </p>
+  </div>
+
+
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("loading");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      }
+
+      var y = document.getElementById("idle");
+      if (y.style.display === "block"){
+        y.style.display = "none";
+      }
+    }
+
+
+
+  </script>
+{% endblock sidebar %}

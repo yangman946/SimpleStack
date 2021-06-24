@@ -1,0 +1,154 @@
+<!--home template by clarence yang 9/01/2021
+    
+    my home html template
+    it differs from the base template 
+-->
+
+{% load static %}
+<!Doctype html>
+    <head>
+        <link rel="icon" href="{% static 'main/assets/thumbnail.png'%}">
+        
+        <!--a check, does the given page have a title?-->
+
+        {% if title%}
+            <title>SimpleStack - {{ title }}</title>    
+        {% else %}
+            <title>SimpleStack</title>
+        {% endif %}
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
+         
+    </head>
+    <body style = "background-color: #ffffff; margin-top: 0px; min-height: 100%; width: 100%;">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <!--navigation bar for css-->
+        <header class="site-header" >
+            <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+                <div class="container">                   
+                    <div class="navbar-nav">              
+                        <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
+                        <a class="nav-item nav-link" href="{% url 'main-guide' %}">Guide</a> <!--referencing: name of route instead of hardcoded-->
+                        <a class="nav-item nav-link" href="{% url 'main-Legal' %}">Terms and Conditions</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <main role="main" class="container" style="height: 100%; width: 100%; position: relative;">
+            <div class="contentHome">
+              
+                <div class="logoHome"> 
+                    <img class= "logo" alt = "SimpleStack" src = "{% static 'main/assets/logo_nav.png' %}">
+                </div>
+
+                <div class="bar" style="width: 55%; margin-left: auto; margin-right: auto;"> <!--this is the search bar-->
+                <!-- Search form -->
+                
+                    <form class="form-inline d-flex justify-content-center md-form form-sm" action ="{% url 'searchbar' %}" method ="get">
+                        <div class = "input-group">
+                            <input class="form-control" autocomplete="off" style= "border-radius: 25px;" type="text" placeholder="{{ textSearch }}" aria-label="Search" name = "search"  data-toggle="popover" spellcheck="false">
+                        </div>
+                        
+                        
+
+                        <div id="unique-id" style="display:none;" class="positionPopper" >
+
+                            <div class="rowx">
+                                <div class="columnx"> <!--add width manually-->
+                                    <p><code>[{your_tag}]</code> - search with tag <span class="badge bg-secondary">New</span></p>
+                                    <p><code>[tagoff]</code> - disable all tags <span class="badge bg-secondary">New</span></p>
+                                    <p><code>[search:{your search}]</code> - search preference</p>
+                                </div>
+                                    
+                                <div class="columnx">
+                                    <p><code>[order:{order}]</code> - sort search <span class="badge bg-secondary">New</span></p>
+                                    
+                                </div>
+
+                            </div>
+                            
+                            <hr>
+                            <div class="bottomPop">
+                                <i>By using SimpleStack, you are agreeing to our <a href="{% url 'main-Legal' %}" style="color: #008037;">Terms and conditions</a></i>
+                            </div>
+                            
+
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary" style = "display: block;" onclick="myFunction()" id="idle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" style="padding-bottom: 3px;">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                            </svg>
+                            <span class="visually-hidden">Button</span>
+                        </button>
+
+                        <button class="btn btn-primary" type="button" id ="loading" style = "display: none; background: #407156; border-color: #407156;" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="padding-bottom: 10px;"></span>
+                            
+                        </button>
+                    </form>
+                </div>
+            
+            </div>
+            
+            <div class = "footer_home-bottom">
+                
+                &copy; SimpleStack | By Clarence Yang
+            </div>
+        </main>
+
+
+
+        <script>
+            $(function () {
+                $("[data-toggle=popover]").popover({
+                    placement: 'bottom',
+                    trigger: 'click',//click
+                    html: true,
+                    container: '.input-group',
+                    content: function() {
+                        //var content = $(this).attr("data-popover-content");
+                        //return $(content).children(".popover-body").html();
+                        return $('#unique-id').html();
+                    },
+
+                })
+            })
+
+            function myFunction() {
+              var x = document.getElementById("loading");
+              if (x.style.display === "none") {
+                x.style.display = "block";
+              }
+
+              var y = document.getElementById("idle");
+              if (y.style.display === "block"){
+                  y.style.display = "none";
+              }
+            }
+
+
+        </script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+
+    
+    </body>
+
+</html>

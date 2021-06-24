@@ -1,0 +1,41 @@
+
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block heading %}
+
+
+<div style="margin-top: 60px;">
+    <img src="{% static 'main/assets/oops_img.png'%}" style="width:250px; height:250px; display: block; margin-left: auto; margin-right: auto;">
+</div>
+
+<div style="margin-top: 50px;">
+    <h1 style = "text-align: center; padding: 10px; font-size: 8em;"><b>500</b></h1>
+    <h2 style = "text-align: center;">OOPS AN INTERNAL SERVER ERROR HAS OCCURRED!</h2>
+    <p style = "text-align: center;">It appears that a server error has occurred, try to reload your request or go <a href="{% url 'main-home' %}">home.</a></p>
+
+</div>
+
+<div class="nerd_stuff">
+    <p style="margin-top: 300px;">
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-left: auto; margin-right: auto; display: block; width: 20%;">
+            Information for nerds
+        </a>
+    
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            value: {{value}} <br>
+            traceback: {{traceback}} <br>
+            
+            (hope you fix it!)
+        </div>
+    </div>
+    
+</div>
+
+{% endblock heading %}
+
+{% block content %}
+    
+{% endblock content %}

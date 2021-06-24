@@ -1,0 +1,170 @@
+<!--Simple stack base template by clarence yang 07/01/2021
+    html shared between files, it is used in similar pages 
+    what are the pros of using template inheritance?
+
+    -suppose we must update our entire website to use bootstrap,
+    by using template inheritance, we make it easy to update and make 
+    changes to all our templates/pages.
+
+    -this will prevent screwing up and makes it easy to maintain
+
+    ctrl + f5
+    this is used for all pages except home page
+-->
+
+<!--load css from static directory-->
+{% load static %}
+<!Doctype html>
+    <head>
+        <link rel="icon" href="{% static 'main/assets/thumbnail.png'%}">
+        
+        <!--a check, does the given page have a title?-->
+
+        {% if title%}
+            <title>SimpleStack - {{ title }}</title>    
+        {% else %}
+            <title>SimpleStack</title>
+        {% endif %}
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+     
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
+        
+    </head>
+    <body style = "background-color: #ffffff;">
+        <!--navigation bar for css-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+        
+        
+        <div class = "page-wrapper">
+            <header class="site-header" >
+                <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05), inset 0 -1px 0 rgba(0,0,0,0.15)">
+                    <div class="container">
+                        <a class="navbar-brand mr-auto" href="/">
+                            <img src="{% static 'main/assets/logo_nav.png'%}" class="img-fluid">
+                        </a>
+                        
+                        <div class="navbar-nav">              
+                            <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
+                            <a class="nav-item nav-link" href="{% url 'main-guide' %}">Guide</a> <!--referencing: name of route instead of hardcoded-->
+                            <a class="nav-item nav-link" href="{% url 'main-Legal' %}">Terms and Conditions</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+    
+            
+            
+    
+            <main role="main" class="container" style="padding-bottom: 100px">
+                <div class="row">
+                    <div class = "heading" style="width: 100%; padding-bottom: 50px;">
+                        {% block heading %}{% endblock %} <!--content for blogs and other small information-->
+                    </div>
+                    
+
+                    <div class="col-md-8"> 
+                        {% block content %}{% endblock %} <!--content for blogs and other small information-->
+
+                    </div>
+
+
+    
+                    <div class="col-md-4" style="padding-left: 50px;"> <!--this is the side bar-->
+                        <!--
+                        
+                        -->
+                        {% block sidebar%}{% endblock %}
+                    </div>
+
+                </div>
+                <div class="endLine">
+                    {% block endline %}{% endblock %}
+                </div>
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5"> <!--fix this, show this-->
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                          <img src="{% static 'main/assets/thumbnail.png'%}" class="rounded me-2" alt="..." style="width:20px; height: 20px;">
+                          <strong class="me-auto">SimpleStack</strong>
+                          <small class="text-muted">Just now</small>
+                          <button type="button" class="btn-close" data-bs-dismiss="toast" onclick="$('.toast').toast('hide');" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          Hey there! Help SimpleStack improve by completing this <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">survey</a>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    //import { Toast } from './js/bootstrap.esm.min.js'
+                    $( document ).ready(function() {
+                        if (!sessionStorage.alreadyClicked) {
+                            setTimeout(
+                            function() 
+                            {
+                                $('.toast').toast({ autohide: false });
+                                $('.toast').toast('show');
+                            }, 2000);
+
+                            sessionStorage.alreadyClicked = 1;
+                        }
+
+                    });
+
+                    
+                    
+                </script>
+            </main>
+        </div>
+        
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <div class = "footer">
+            <div class = "footer-content">
+                <div class = "footer-section-about">
+                    <img src="{% static 'main/assets/logo_trans.png'%}" class="img-footer">
+                    <p>Designed and developed for the 2021 SDD HSC Major Project by Clarence Yang @ Carlingford HS</p>
+                </div>
+                <div class = "footer-section-links">
+                    <h3><b>Links</b></h3>
+                    <ul class="footerList">
+                        <li><a class="footerItem" href="{% url 'main-home' %}">Home</a></li>
+                        <li><a class="footerItem" href="{% url 'main-about' %}">About</a></li>
+                        <li><a class="footerItem" href="{% url 'main-guide' %}">Guide</a></li> <!--referencing: name of route instead of hardcoded-->
+                        <li><a class="footerItem" href="{% url 'main-Legal' %}">T&C's</a></li>
+                        <li><a class="footerItem" href="https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">Feedback</a></li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class = "footer-section-contact-form">
+                    <!--contact and feed back-->
+                </div>
+            </div>
+            <div class = "footer-bottom">
+                &copy; SimpleStack | By Clarence Yang
+            </div>
+
+
+        </div>
+    
+    </body>
+
+</html>

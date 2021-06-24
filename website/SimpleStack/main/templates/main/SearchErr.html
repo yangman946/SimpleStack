@@ -1,0 +1,59 @@
+<!--our home html template-->
+{% extends "main/base.html" %}
+
+{% block heading %}
+
+
+<h1>{{type}}'{{Search}}'</h1>
+
+<!--results????-->
+<p>No results found</p>
+
+
+
+
+{% endblock heading %}
+
+{% block content %}
+
+<br>
+
+<!--ignore this section, this is a debug check-->
+{% if debug == True %}
+  {% if debug_text == "blue" %}
+  <div class="alert alert-primary" role="alert">
+     {{text}} is {{debug_text}}
+  </div>
+  {% elif debug_text == "green" %}
+  <div class="alert alert-success" role="alert">
+    {{text}} is {{debug_text}}
+  </div>
+  {% elif debug_text == "red" %}
+  <div class="alert alert-danger" role="alert">
+    {{text}} is {{debug_text}}
+  </div>
+  {% elif debug_text == "orange" %}
+  <div class="alert alert-warning" role="alert">
+    {{text}} is {{debug_text}}
+  </div>
+  {% endif %}
+
+{% else %}
+  <!--gets the trouble shooting and tips-->
+  <p>{{info}}</p>
+
+  <ul>
+      <li>Check out our <a href="{% url 'main-guide' %}">Guide</a></li>
+      {% for r in shoot %}
+        <li>{{r}}</li>
+      {% endfor %}
+  </ul>  
+{% endif %}
+
+
+
+{% endblock content %}
+
+{% block sidebar %}
+
+{% endblock sidebar %}
