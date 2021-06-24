@@ -49,7 +49,7 @@ If you wish to run SimpleStack locally or make contributions:
 
 ### Access directly via Web URL
 
-1) TBA
+1) <a href="https://simplestack.pythonanywhere.com/">https://simplestack.pythonanywhere.com/</a>
 
 ## The algorithm
 
