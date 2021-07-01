@@ -23,7 +23,7 @@ SimpleStack is currently in it's Beta testing stage, please give feedback <a hre
 
 `$ git clone https://github.com/yangman946/SimpleStack`
 
-## running
+## Installation guide
 
 There are two ways to access this project:
 
@@ -49,7 +49,7 @@ If you wish to run SimpleStack locally or make contributions:
 
 ### Access directly via Web URL
 
-1) <a href="https://simplestack.pythonanywhere.com/">https://simplestack.pythonanywhere.com/</a>
+1) Visit <a href="https://simplestack.pythonanywhere.com/">https://simplestack.pythonanywhere.com/</a> on your browser.
 
 ## The algorithm
 
