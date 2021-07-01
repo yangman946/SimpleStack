@@ -5,10 +5,10 @@
 {% block heading %}
 <!--<div class= "big-head">
     <div class= "container">
-        <h1 style="color: #f5f5f5; font-size: 100px; font-weight: lighter; margin: auto; padding: 40px; font-family: Century Gothic;">About Us</h1>   
+        <h1 style="color: #f5f5f5; font-size: 100px; font-weight: lighter; margin: auto; padding: 40px; font-family: Century Gothic;">About Us</h1>
     </div>
-     
-    
+
+
 </div>-->
 
 
@@ -17,7 +17,7 @@
 
 {% block content %}
     <h1>SimpleStack Guide</h1>
-    <p><i>Last updated: June 21, 2021</i></p>
+    <p><i>Last updated: July 1, 2021</i></p>
     <br>
     <div style="text-align: justify;">
         <div class="topResults">
@@ -26,10 +26,10 @@
               <p>So what is SimpleStack? SimpleStack is a Search Engine dedicated to solving your programming issues. It searches the web - using <a href="https://stackexchange.com/">Stack Exchange</a> - for suitable solutions.
               </p>
             </div>
-            
-            
+
+
         </div>
-        
+
         <br>
         <div>
             <h2 class = "anchor" id = "summary">Summary</h2>
@@ -51,15 +51,15 @@
             <div class="topResults">
                 <div style="padding: 10px">
                   <p><b>TIP:</b> Once you submit a search, SimpleStack explicitly shows the Identified tags and keywords</p>
-    
-    
+
+
                 </div>
-                
-                
+
+
             </div>
             <br>
-            
-            <p>SimpleStack will return results once you have entered a relevant query into the search bar at <a href="{% url 'main-home' %}">home</a>. The SimpleStack algorithm will automatically break down your search query into tags and use machine learning to gather relevant results from the <a href="https://api.stackexchange.com/docs">Stack Exchange</a> API. </p>
+
+            <p>SimpleStack will return results once you have entered a relevant query into the search bar at <a href="{% url 'main-home' %}">home</a>. The SimpleStack algorithm will automatically break down your search query into tags and use AI to gather relevant results from the <a href="https://api.stackexchange.com/docs">Stack Exchange</a> API. </p>
             <br>
             <p>NOTE: To override this function see <a href="#key words">Key words and tagging</a>.</p>
             <br>
@@ -71,20 +71,20 @@
                 <div style="padding: 10px">
                   <p><b>TIP:</b> SimpleStack automatically omits redundant words</p>
                 </div>
-                
-                
+
+
             </div>
             <br>
             <P>The applications of efficient searching is integral in software development. The SimpleStack algorithm can judge the efficiency of the search based on your query.
-                To ensure your results are relevant, you should be as concise as possible, replacing redundant phrases or words for 
+                To ensure your results are relevant, you should be as concise as possible, replacing redundant phrases or words for
                 important key words instead since NOT ALL redundancies are omitted.
-                
+
             </P>
             <P>Once you have submitted a search, various details such as the language and type of query is identified by the AI. SimpleStack will obtain results for your query and in doing so, it
                 will compare each result to your specified query. Hence it is imperative that your search contains the necessary key words.
             </P>
             <br>
-            <img src="{% static 'main/assets/guide_1.png'%}" style="width:60%; height: 60%; display: block; margin-left: auto; margin-right: auto;">
+            <img src="https://lh3.googleusercontent.com/_nc82w-y31LCm5KDEXq-7zO_VHPJELrfT5gqM57XDDS_udJmk5IbKFe_sCuu8GkgURvDcTdx1RF0Cw=w1920-h969-rw" style="width:60%; height: 60%; display: block; margin-left: auto; margin-right: auto;">
             <br>
             <P>If your search returns no results, this means that the search query is either too specific or too vague. To fix this, rectify your search accordingly, E.g. the query
                 <code>NameError: name is not defined</code> is a good search query, however multiple strings were omitted to suit the algorithm, here's the original query:
@@ -97,26 +97,26 @@
             <br>
             <P>In searching, the SimpleStack algorithm looks for key words in your search query. These words are separated and stored to be compared alongside potential results.</P>
             <P>To increase the chance of a successful search, you should try include as many keywords as possible, the algorithm will omit as many redundancies as possible. This can include redundant words such as:
-                <code>to, can, in, is, how, etc.</code>. Although the algorithm ignores these words as key words, the query input for the API will not. 
+                <code>to, can, in, is, how, etc.</code>. Although the algorithm ignores these words as key words, the query input for the API will not.
             </P>
             <P>Furthermore, when posting your error messages, try to simplify/generalise them, the engine doesn't need to know on what line you encountered the error or the name of your
                 project unless absolutely necessary e.g. <code>Traceback (most recent call last): File "&lt;pyshell#0>", line 1, in &lt;module> asdf NameError: name 'asdf' is not defined</code>.
             </P>
             <p>You can also take advantage of the key word functions to customize your search:</p>
             <br>
-            <img src="{% static 'main/assets/guide_2.png'%}" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
+            <img src="https://lh4.googleusercontent.com/LB1ikM5v6dExzLmW2IetLiGzn7RAKZrd-UcvI9TCh_fglUdd4QpdsuQ0bKBbvMXQWgaipKke9UN9jA=w1920-h969-rw" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
             <br>
             <p>To narrow down results, utilise <code>[tags]</code> in your query. To use tags, simply include your tags in square brackets, e.g., <code>[C#][.net] Print text</code>.
                 Tags can be used to specify the programming language or any essential information regarding your query. NOTE: this will override the automated process of tagging!
             </p>
             <br>
-            <img src="{% static 'main/assets/guide_3.png'%}" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
+            <img src="https://lh3.googleusercontent.com/2Kw9HcHvwVaVvWFSIkYaB-Yt42wg3ORYbYx0q3YcbeRRfnfmHF6RyneEWIAE6ts6MF17tthcrP0F6Q=w1920-h969-rw" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
             <br>
             <p>
                 To select search preference, use <code>[search:{your search type}]</code> at the beginning of your query. E.g:
             </p>
             <br>
-            <img src="{% static 'main/assets/guide_4.png'%}" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
+            <img src="https://lh3.googleusercontent.com/GJmq_HSzyPgXLPwH2ytHS506pvvMpeUN93_EQVhfO5gfWq4ObcaIkMPAyZRcVZo3tNLnYkN0HAMNNg=w1920-h969-rw" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
             <br>
             <p>Here are the search preferences:</p>
             <ul>
@@ -128,9 +128,9 @@
             <br>
             <p>
                 To select search order, use <code>[order:{order}]</code> in the beginning of your query. E.g.:
-            </p> 
+            </p>
             <br>
-            <img src="{% static 'main/assets/guide_5.png'%}" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
+            <img src="https://lh6.googleusercontent.com/HHv17AOCP6VqSHMHIiQDdfIq3ga2HAIOtdEysh4SIlHAiu1amFrT3NPGibOtqI_ZG4IRR-KZb708eQ=w1920-h969-rw" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
             <br>
             <p>Here are the order preferences:</p>
             <ul>
@@ -142,26 +142,22 @@
                 To disable tagging, simply add the string <code>[tagoff]</code> in the beginning of your query. E.g:
             </p>
             <br>
-            <img src="{% static 'main/assets/guide_6.png'%}" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
+            <img src="https://lh3.googleusercontent.com/Kalub3KBXA8_zBNGiz1BclrRoFwhZJNWBOhQihzsV20FCss1w4ceUei2nxSjYo6vWep2QnxNu2VeHA=w1920-h969-rw" style="width:60%; height:60%; display: block; margin-left: auto; margin-right: auto;">
             <br>
         </div>
         <div>
             <h2 class = "anchor" id = "language">Installation</h2>
             <br>
-            <p>Currently, SimpleStack is not avaliable as an app, but can be </p>
-            <p>You can do this one of two ways: </p>
-            <ul>
-                <li>Add it as a tag, for example: <Code>[python] how to print text</Code></li>
-                <li>Just type it with the query <Code>how to print text in python.</Code></li>
-            </ul>
+            <p>Currently, SimpleStack is not avaliable as an app, and can only be accessed via a browser, such as the one you're using right now. </p>
+            <p>However, you can download the source code or run SimpleStack locally as explained on <a class="footerItem" href="https://github.com/yangman946/SimpleStack">Github</a>. </p>
             <br>
         </div>
         <div>
             <h2 class = "anchor" id = "FAQ">FAQ</h2>
             <br>
             <b>Q: Why does a warning show when I see my search results?</b>
-            <p>A: The warning 'the following results may be unreliable as detected by the confidence algorithm...' is evoked when the top search result is not considered a good result. 
-                This can be due to a bad search query or if the topic is too broad. 
+            <p>A: The warning 'the following results may be unreliable as detected by the confidence algorithm...' is evoked when the top search result is not considered a good result.
+                This can be due to a bad search query or if the topic is too broad.
             </p>
             <br>
             <b>Q: No results show, what do I do?</b>
@@ -169,29 +165,35 @@
             <ol>
                 <li>You search query was either too specific or too vague, so no results can be found</li>
                 <li>The quota Count has been exceeded (this rarely occurs)</li>
-            </ol>  
+            </ol>
             <br>
             <b>Q: Tags don't work, what do I do?</b>
             <p>A: Tags are case sensitive, make sure you type them exactly the way they are shown <a href="#key words">Here</a>. </p>
             <br>
+            <b>Q: Error 500?</b>
+            <p>A: Error 500 indicates that an internal server error has occurred. Try to refresh your request. If this error is still being evoked, give feedback <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">here</a> </p>
+            <br>
+            <b>Q: Multiple tags don't yield results</b>
+            <p>A: There are certain limitations with using custom tags, hence custom tags might not yield results. Try to rephrase your query or use different tags. </p>
+            <br>
             <b>Q: How do I give feedback?</b>
-            <p>A: Give feedback <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">here</a>.</p>     
-            <br> 
+            <p>A: Give feedback <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">here</a>.</p>
+            <br>
         </div>
     </div>
-    
-    
+
+
 {% endblock content %}
 
 {% block sidebar %}
 <div class="content-section">
-                  
+
     <h3 style = "margin-top: 10px;">Contents</h3>
     <ul class = "contents-list">
         <li><a href = "#summary">Summary</a></li>
         <li><a href = "#searching">Searching</a></li>
         <li><a href = "#key words">Key words and tagging</a></li>
-        <li><a href = "#language">Language</a></li>
+        <li><a href = "#language">Installation</a></li>
         <li><a href = "#FAQ">FAQ</a></li>
       </ul>
   </div>
