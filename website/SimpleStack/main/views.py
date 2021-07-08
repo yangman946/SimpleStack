@@ -53,23 +53,24 @@ def about(request): #about webpage
 def guide(request):
     return render(request, 'main/guide.html', {'title': 'Guide'})
 
-#search
+#search request 
 def search(request):
     if request.method == 'GET':
         search = request.GET.get('search')
         start_time = time.time() #start recording time
 
         #print(search) #debug
-        formatted_search = urllib.parse.quote_plus(search)
+        formatted_search = urllib.parse.quote_plus(search) 
 
         if (search == ""): #if no search query
-            context = {
+            context = { 
                 #'result': Post.objects.all(), #database content
                 'title': 'Home', #how we pass the title
-                'textSearch': randomText[random.randint(0, len(randomText)-1)]
+                'textSearch': randomText[random.randint(0, len(randomText)-1)] 
+                #ignore
             }
             return render(request, 'main/home.html', context) #do nothing
-        elif(encrypt(search.replace(" ", ""), 5) == "bmfynxnxmfs"): #just ignore this section: change this? ############################## debug
+        elif(encrypt(search.replace(" ", ""), 5) == "bmfynxnxmfs"): #debug ############################## debug
                 colours = ["blue", "green", "red", "orange"]
 
                 context = {
@@ -87,7 +88,7 @@ def search(request):
 
                 return render(request,'main/SearchErr.html', context) ####################################### debug
         else: #get output
-            instance = Main.API_instance() #create instance of our api wrapper
+            instance = Main.API_instance() #create instance of our api class: main.py class. 
 
             
             result = instance.main(search) #takes in a query 
@@ -108,8 +109,8 @@ def search(request):
                     #pass more stuff to be shown
                 }
 
-                return render(request,'main/SearchErr.html', context)
-            elif(result == "Failed"): #query error
+                return render(request,'main/SearchErr.html', context) #show user that no result was found
+            elif(result == "Failed"): #query error 
                 shoot = ['make sure tags are correct', 'send feedback']
                 context = {
                     'title': 'Search Error', #how we pass the title
@@ -122,7 +123,7 @@ def search(request):
                     #pass more stuff to be shown
                 }
 
-                return render(request,'main/SearchErr.html', context)
+                return render(request,'main/SearchErr.html', context) #show user query error. 
             else: #if working
                 #print(result[2]) #debug
 
@@ -138,7 +139,7 @@ def search(request):
 
                 try:
 
-                    page = p.page(page_num)
+                    page = p.page(page_num) #set page to current page
                 except:
                     page = p.page(1)
 
@@ -147,6 +148,7 @@ def search(request):
                 global scoreTag
                 #scoreTag = 0
 
+                #clear all arrays
                 resultBody.clear()
                 resultTitle.clear()
                 resultLink.clear()
@@ -219,7 +221,7 @@ def search(request):
 
                 print("paginated pages: " + str(len(pages)) + "|current page: " + str(page_num))
 
-                #error here
+                
 
                 prefix = "?search=" + formatted_search
 
