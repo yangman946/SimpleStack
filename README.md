@@ -27,9 +27,13 @@ SimpleStack is currently in it's Beta testing stage, please give feedback <a hre
 
 There are two ways to access this project:
 
+### Access directly via Web URL
+
+1) Visit <a href="https://simplestack.pythonanywhere.com/">https://simplestack.pythonanywhere.com/</a> on your browser.
+
 ### Run Django Server
 
-If you wish to run SimpleStack locally or make contributions:
+If you wish to run SimpleStack locally:
 
 1) Make sure [python](https://www.python.org/) is installed and added to path
 
@@ -39,31 +43,40 @@ If you wish to run SimpleStack locally or make contributions:
 
 2) open command prompt
 
-3) Get Django: `$ pip install django` 
-
-4) Get virtual environment: `$ pip install virtualenv`
-
-4) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack` or download the source code:
+3) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack` or download the source code:
 
 <p align="center">
 <img src="https://github.com/yangman946/SimpleStack/blob/main/install_2.PNG?raw=true" alt="simple stack">
 </p>
 
-5) Go to the project directory containing `manage.py` `$ cd [your desired location]/simplestack/website/simplestack` 
+4) Go to the project directory containing `manage.py` `$ cd [your desired location]/simplestack/website/simplestack` 
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/yangman946/SimpleStack/main/install_3.PNG" alt="simple stack">
 </p>
 
-6) run `$ venv\Scripts\activate` to activate virtual environment
+5) Get Django: `$ pip install django` 
 
-7) run `$ python manage.py runserver` to run server
+6) Get virtual environment: `$ pip install virtualenv`
 
-8) Visit the locally hosted site (address shown on command prompt)
+7) run `$ venv\Scripts\activate` to activate virtual environment
 
-### Access directly via Web URL
+8) run `$ python manage.py runserver` to run server
 
-1) Visit <a href="https://simplestack.pythonanywhere.com/">https://simplestack.pythonanywhere.com/</a> on your browser.
+9) Visit the locally hosted site (address shown on command prompt)
+
+*see online help [here](https://simplestack.pythonanywhere.com/guide/)*
+
+
+### Troubleshooting
+
+**`module not found error`** - Make sure the version of pip you are using is up to date and python is added to path
+
+**Unable to clone repository?** - try downloading the repository manually as shown in step 5.
+
+**Unable to activate venv?** - ensure venv is installed at the correct location: at the same folder `manage.py` resides in.
+
+**Unable to access the provided URL** - the server may be down, wait some time or give feedback [here](https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link)
 
 ## The algorithm
 
