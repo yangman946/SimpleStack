@@ -33,13 +33,27 @@ If you wish to run SimpleStack locally or make contributions:
 
 1) Make sure [python](https://www.python.org/) is installed and added to path
 
-2) Get Django: `$ pip install django` via CMD
+<p align="center">
+<img src="https://github.com/yangman946/SimpleStack/blob/main/install_1.png?raw=true" alt="simple stack">
+</p>
 
-3) Get virtual environment: `$ pip install virtualenv`
+2) open command prompt
 
-4) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack`
+3) Get Django: `$ pip install django` 
 
-5) In CMD: `$ cd [project directory]` (this directory should contain `manage.py`)
+4) Get virtual environment: `$ pip install virtualenv`
+
+4) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack` or download the source code:
+
+<p align="center">
+<img src="https://github.com/yangman946/SimpleStack/blob/main/install_2.png?raw=true" alt="simple stack">
+</p>
+
+5) Go to the project directory containing `manage.py` `$ cd [your desired location]/simplestack/website/simplestack` 
+
+<p align="center">
+<img src="https://github.com/yangman946/SimpleStack/blob/main/install_3.png?raw=true" alt="simple stack">
+</p>
 
 6) run `$ venv\Scripts\activate` to activate virtual environment
 
