@@ -46,13 +46,13 @@ If you wish to run SimpleStack locally or make contributions:
 4) Clone this project to your desired location: `$ git clone https://github.com/yangman946/SimpleStack` or download the source code:
 
 <p align="center">
-<img src="https://github.com/yangman946/SimpleStack/blob/main/install_2.png?raw=true" alt="simple stack">
+<img src="https://github.com/yangman946/SimpleStack/blob/main/install_2.PNG?raw=true" alt="simple stack">
 </p>
 
 5) Go to the project directory containing `manage.py` `$ cd [your desired location]/simplestack/website/simplestack` 
 
 <p align="center">
-<img src="https://github.com/yangman946/SimpleStack/blob/main/install_3.png?raw=true" alt="simple stack">
+<img src="https://raw.githubusercontent.com/yangman946/SimpleStack/main/install_3.PNG" alt="simple stack">
 </p>
 
 6) run `$ venv\Scripts\activate` to activate virtual environment
