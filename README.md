@@ -65,7 +65,8 @@ If you wish to run SimpleStack locally:
 
 9) Visit the locally hosted site (address shown on command prompt)
 
-*see online help [here](https://simplestack.pythonanywhere.com/guide/)*
+
+*see online help/help guide [here](https://simplestack.pythonanywhere.com/guide/)*
 
 
 ### Troubleshooting
@@ -77,6 +78,9 @@ If you wish to run SimpleStack locally:
 **Unable to activate venv?** - ensure venv is installed at the correct location: at the same folder `manage.py` resides in.
 
 **Unable to access the provided URL** - the server may be down, wait some time or give feedback [here](https://docs.google.com/forms/d/e/1FAIpQLSdAyl74t7nnGc5t78ZhApGON2LB7rt8ODKOEbc-OTHSJrSGtQ/viewform?usp=sf_link)
+
+
+*see trouble shooting for online help/help guide [here](https://simplestack.pythonanywhere.com/guide/)*
 
 ## The algorithm
 
