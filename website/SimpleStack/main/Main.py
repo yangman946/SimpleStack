@@ -107,6 +107,7 @@ class API_instance: #Object class is instantiated from views.py
 
             #handling tags
             if (tag[5]): #if manual tagging
+                #print("manual")
                 text = "&tagged="
                 if (tag[3] != "Unknown Language"): #if language is known
                     text2 = tag[3] 
@@ -116,6 +117,7 @@ class API_instance: #Object class is instantiated from views.py
                     if (i != tag[3]): #tags except language
                         text2 = text2 + "; " + i 
             else:
+                #print("automatic")
                 text = "&tagged="
                 if (tag[3] != "Unknown Language"):
                     text2 = tag[3]
@@ -227,6 +229,7 @@ class API_instance: #Object class is instantiated from views.py
                 id_val = json[i]['question_id'] #get question id from question
                 self.QuestionID.append(id_val) #add the ID
 
+                #print("item added to array")
 
 
         #at this point we should have a list of satisfactory results
