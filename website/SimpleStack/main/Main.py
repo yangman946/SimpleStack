@@ -50,7 +50,8 @@ from difflib import SequenceMatcher
 #api
 from wit import Wit 
 from stackapi import StackAPI
-
+from dotenv import load_dotenv
+import os
 
 class API_instance: #Object class is instantiated from views.py
 
@@ -80,8 +81,8 @@ class API_instance: #Object class is instantiated from views.py
 
     Search_query = "" #the search query
 
-
-
+    load_dotenv()
+    API_KEY = os.getenv("API_KEY", '')
     
     #main function
     def main(self, query):
@@ -96,7 +97,7 @@ class API_instance: #Object class is instantiated from views.py
             global Search_query
 
             #instantiate API class
-            SITE = StackAPI('stackoverflow', key = "eL78fGuZHts4TPORMYGiJw((") # The authetication key is passed to allow for an increased quota
+            SITE = StackAPI('stackoverflow', key = self.API_KEY) # The authetication key is passed to allow for an increased quota
             #preferences for API
             SITE.max_pages = 1
             SITE.page_size = 5
@@ -129,7 +130,7 @@ class API_instance: #Object class is instantiated from views.py
             
             Search_query = tag[1]
 
-            URL = ["https://api.stackexchange.com/2.2/search/advanced?order={0}&sort={1}&q=".format(self.order, self.sort), "&filter=default&closed=False&site=stackoverflow&run=true&key=eL78fGuZHts4TPORMYGiJw(("] #will append with appropriate query
+            URL = ["https://api.stackexchange.com/2.2/search/advanced?order={0}&sort={1}&q=".format(self.order, self.sort), "&filter=default&closed=False&site=stackoverflow&run=true&key={}".format(self.API_KEY)] #will append with appropriate query
 
             urlDownload = URL[0] + urllib.parse.quote_plus(tag[1]) + text + urllib.parse.quote_plus(text2) + URL[1] #get our formatted url -> to stack api
             print(urlDownload) #debug
@@ -375,7 +376,7 @@ class API_instance: #Object class is instantiated from views.py
             global SITE 
             
             #API 
-            SITE = StackAPI('stackoverflow', key = "eL78fGuZHts4TPORMYGiJw((") #where we source it, it could change depending on our algorithm, also an authetication key is passed to allow for a greater quota
+            SITE = StackAPI('stackoverflow', key = self.API_KEY) #where we source it, it could change depending on our algorithm, also an authetication key is passed to allow for a greater quota
             #preferences
             SITE.max_pages = 1
             SITE.page_size = 5
